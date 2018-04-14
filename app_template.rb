@@ -1,9 +1,8 @@
 require 'bundler'
 
-gem_group :default do
-  gem 'hamlit'
-end
-
+gem 'hamlit'
+gem 'babel-transpiler'
+gem 'sprockets', '4.0.0.beta7'
 gem_group :development do
   gem 'hamlit-rails'
   gem 'erb2haml'
