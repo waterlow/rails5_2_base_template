@@ -19,7 +19,7 @@ gsub_file 'Gemfile', /  gem 'erb2haml'\n/, ''
 
 run 'rm -rf app/assets/stylesheets/application.css'
 get(
-  'https://raw.github.com/morizyun/rails5_application_template/master/app/assets/stylesheets/application.scss',
+  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4/app/assets/stylesheets/application.scss',
   'app/assets/stylesheets/application.scss'
 )
 
