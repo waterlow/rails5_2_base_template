@@ -23,10 +23,10 @@ get(
   'app/assets/stylesheets/application.scss'
 )
 
-insert_into_file 'app/assets/javascripts/application.js', %(
-  //= require jquery3
-  //= require popper
-  //= require bootstrap-sprockets
+insert_into_file 'app/assets/javascripts/application.js',
+%(//= require jquery3
+//= require popper
+//= require bootstrap-sprockets
 ), before: '//= require_tree .'
 
 gsub_file 'Gemfile', /\/\/= require_tree .\n/, ''
