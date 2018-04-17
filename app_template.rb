@@ -65,7 +65,7 @@ route "root 'home#index'"
   app/views/home/index.html.haml
 ].each do |file|
   get(
-    "https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/#{file}",
+    "https://raw.githubusercontent.com/waterlow/rails5_2_base_template/master/#{file}",
     file
   )
 end
