@@ -5,10 +5,13 @@ gem 'babel-transpiler'
 gem 'sprockets', '4.0.0.beta7'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'octicons_helper'
 gem_group :development do
   gem 'hamlit-rails'
   gem 'erb2haml'
 end
+
+gsub_file 'Gemfile', /(gem 'coffee-rails'.+\n)/, '# \1'
 
 Bundler.with_clean_env do
   run 'bundle install'
@@ -16,15 +19,14 @@ Bundler.with_clean_env do
 end
 
 gsub_file 'Gemfile', /  gem 'erb2haml'\n/, ''
-gsub_file 'Gemfile', /gem 'coffee-rails'.+\n/, ''
 
 run 'rm -rf app/assets/stylesheets/application.css'
 get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4/app/assets/stylesheets/application.scss',
+  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/assets/stylesheets/application.scss',
   'app/assets/stylesheets/application.scss'
 )
 get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4/app/assets/stylesheets/common.scss',
+  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/assets/stylesheets/common.scss',
   'app/assets/stylesheets/common.scss'
 )
 
@@ -34,11 +36,11 @@ insert_into_file 'app/assets/javascripts/application.js',
 //= require bootstrap-sprockets
 ), before: '//= require_tree .'
 
-gsub_file 'Gemfile', /\/\/= require_tree .\n/, ''
+gsub_file 'app/assets/javascripts/application.js', /\/\/= require_tree .\n/, ''
 
 run 'rm -rf app/views/layouts/application.html.haml'
 get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4/app/views/layouts/application.html.haml',
+  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/views/layouts/application.html.haml',
   'app/views/layouts/application.html.haml'
 )
 
@@ -68,6 +70,6 @@ route "root 'home#index'"
 
 run 'rm -rf app/views/home/index.html.haml'
 get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4/app/views/home/index.html.haml',
+  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/views/home/index.html.haml',
   'app/views/home/index.html.haml'
 )

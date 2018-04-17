@@ -1,7 +1,15 @@
-body {
+main.container {
   padding-top: 5rem;
 }
-.starter-template {
-  padding: 3rem 1.5rem;
-  text-align: center;
+html {
+  font-size: 90%;
+}
+svg {
+  fill: currentColor;
+}
+.card-title {
+  margin-bottom: 0;
+}
+.search-panel {
+  margin-bottom: 20px;
 }
