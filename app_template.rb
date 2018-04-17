@@ -69,3 +69,7 @@ route "root 'home#index'"
     file
   )
 end
+
+git :init
+git add: '.'
+git commit: "-m 'Initial commit'"
