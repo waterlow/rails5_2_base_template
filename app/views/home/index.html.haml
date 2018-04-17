@@ -1,0 +1,149 @@
+%h1.font-weight-bold
+  商品検索
+.row
+  .col-lg-12
+    %form#new_search_product.form-horizontal{"accept-charset" => "UTF-8", :action => "/products/search", :method => "get", :role => "form"}
+      %div{:style => "display:none"}
+        %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+      .card.search-panel
+        .card-header
+          %h2.card-title.card-title-1rem
+            = octicon 'search', class: 'align-middle'
+            検索条件
+        .card-body
+          .row
+            .col-sm-6
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""} 商品コード
+                .col-sm-8
+                  %input#search_product_code.form-control{:name => "search_product[code]", :type => "text", :value => ""}/
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""} 商品名
+                .col-sm-8
+                  %input#search_product_name.form-control{:name => "search_product[name]", :type => "text", :value => ""}/
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""} 商品名カナ
+                .col-sm-8
+                  %input#search_product_name_kana.form-control{:name => "search_product[name_kana]", :type => "text", :value => ""}/
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""}
+                .col-sm-6
+                  .checkbox
+                    %label
+                      %input{:name => "search_product[availability]", :type => "hidden", :value => "0"}/
+                      %input#search_product_availability{:name => "search_product[availability]", :type => "checkbox", :value => "1"}/
+                      販売中のみ
+            .col-sm-6
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""} 最低商品価格
+                .col-sm-8
+                  %input#search_product_price_from.form-control{:name => "search_product[price_from]", :type => "text", :value => ""}/
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""} 最高商品価格
+                .col-sm-8
+                  %input#search_product_price_to.form-control{:name => "search_product[price_to]", :type => "text", :value => ""}/
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""} 最低仕入原価
+                .col-sm-8
+                  %input#search_product_purchase_cost_from.form-control{:name => "search_product[purchase_cost_from]", :type => "text", :value => ""}/
+              .form-group.row
+                %label.col-sm-4.col-form-label.text-right{:for => ""} 最高仕入原価
+                .col-sm-8
+                  %input#search_product_purchase_cost_to.form-control{:name => "search_product[purchase_cost_to]", :type => "text", :value => ""}/
+            .col-sm-12.text-center
+              %a.btn.btn-secondary.btn-left{:href => "/products"} クリア
+              %button.btn.btn-default.btn-primary{:type => "submit"}
+                = octicon 'search', class: 'align-middle'
+                検索
+    %h2.font-weight-bold 検索結果
+    %table.table.table-list
+      %thead
+        %tr
+          %th 販売状況
+          %th 商品コード
+          %th 商品名
+          %th 販売価格
+          %th 仕入原価
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-success 販売中
+          %td RA0000001
+          %td A製造アルミケースRSDI001
+          %td 2,500円
+          %td 1,200円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-success 販売中
+          %td RA0000001
+          %td A製造アルミケースRSDI001
+          %td 2,500円
+          %td 1,200円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-success 販売中
+          %td RA0000002
+          %td A製造アルミケースRSDI002
+          %td 3,200円
+          %td 2,000円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-success 販売中
+          %td RA0000002
+          %td A製造アルミケースRSDI002
+          %td 3,200円
+          %td 2,000円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-success 販売中
+          %td RB0000001
+          %td B製造アルミケースBSD001
+          %td 900円
+          %td 800円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-success 販売中
+          %td RB0000001
+          %td B製造アルミケースBSD001
+          %td 900円
+          %td 800円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-secondary 販売不可
+          %td RX0000099
+          %td A電子カードホルダ
+          %td 3,000円
+          %td 2,500円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-secondary 販売不可
+          %td RX0000099
+          %td A電子カードホルダ
+          %td 3,000円
+          %td 2,500円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-secondary 販売不可
+          %td RX0000179
+          %td A電子光沢アルミケース TypeA
+          %td 9,800円
+          %td 8,000円
+      %tbody
+        %tr
+          %td
+            %span.badge.badge-secondary 販売不可
+          %td RX0000179
+          %td A電子光沢アルミケース TypeA
+          %td 9,800円
+          %td 8,000円
+%hr/
+%footer
+  %p © waterlow.io 2018

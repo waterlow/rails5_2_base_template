@@ -1,0 +1,20 @@
+!!!
+%html{:lang => "ja"}
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{:charset => "utf-8"}/
+    %meta{:content => "width=device-width, initial-scale=1, shrink-to-fit=no", :name => "viewport"}/
+    %meta{:content => "", :name => "description"}/
+    %meta{:content => "", :name => "author"}/
+    / <link rel="icon" href="../../../../favicon.ico">
+    %title Starter Template for Bootstrap
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body
+    %nav.navbar.navbar-expand-md.navbar-dark.bg-dark.fixed-top
+      .container
+        %a.navbar-brand{:href => "#"} Form Object Example
+    %main.container{:role => "main"}
+      = yield
