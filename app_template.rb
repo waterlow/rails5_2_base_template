@@ -20,6 +20,10 @@ end
 
 gsub_file 'Gemfile', /  gem 'erb2haml'\n/, ''
 
+Bundler.with_clean_env do
+  run 'bundle install'
+end
+
 insert_into_file 'app/assets/javascripts/application.js',
 %(//= require jquery3
 //= require popper
@@ -68,10 +72,6 @@ route "root 'home#index'"
     "https://raw.githubusercontent.com/waterlow/rails5_2_base_template/master/#{file}",
     file
   )
-end
-
-Bundler.with_clean_env do
-  run 'bundle install'
 end
 
 git :init
