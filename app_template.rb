@@ -12,6 +12,7 @@ gem_group :development do
 end
 
 gsub_file 'Gemfile', /(gem 'coffee-rails'.+\n)/, '# \1'
+gsub_file 'Gemfile', /(.*gem 'spring'.*)/, '# \1'
 
 Bundler.with_clean_env do
   run 'bundle install'
