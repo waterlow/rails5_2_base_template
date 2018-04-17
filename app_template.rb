@@ -20,16 +20,6 @@ end
 
 gsub_file 'Gemfile', /  gem 'erb2haml'\n/, ''
 
-run 'rm -rf app/assets/stylesheets/application.css'
-get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/assets/stylesheets/application.scss',
-  'app/assets/stylesheets/application.scss'
-)
-get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/assets/stylesheets/common.scss',
-  'app/assets/stylesheets/common.scss'
-)
-
 insert_into_file 'app/assets/javascripts/application.js',
 %(//= require jquery3
 //= require popper
@@ -37,12 +27,6 @@ insert_into_file 'app/assets/javascripts/application.js',
 ), before: '//= require_tree .'
 
 gsub_file 'app/assets/javascripts/application.js', /\/\/= require_tree .\n/, ''
-
-run 'rm -rf app/views/layouts/application.html.haml'
-get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/views/layouts/application.html.haml',
-  'app/views/layouts/application.html.haml'
-)
 
 application  do
   %q{
@@ -68,8 +52,20 @@ end
 generate(:controller, 'home index')
 route "root 'home#index'"
 
-run 'rm -rf app/views/home/index.html.haml'
-get(
-  'https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/app/views/home/index.html.haml',
-  'app/views/home/index.html.haml'
-)
+%w[
+  app/assets/stylesheets/application.css
+  app/views/layouts/application.html.haml
+  app/views/home/index.html.haml
+].each { |file| run "rm -rf #{file}" }
+
+%w[
+  app/assets/stylesheets/application.scss
+  app/assets/stylesheets/common.scss
+  app/views/layouts/application.html.haml
+  app/views/home/index.html.haml
+].each do |file|
+  get(
+    "https://raw.githubusercontent.com/waterlow/rails5_2_base_template/bootstrap4_search_form/#{file}",
+    file
+  )
+end
