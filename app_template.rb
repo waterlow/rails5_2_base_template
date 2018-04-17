@@ -70,6 +70,10 @@ route "root 'home#index'"
   )
 end
 
+Bundler.with_clean_env do
+  run 'bundle install'
+end
+
 git :init
 git add: '.'
 git commit: "-m 'Initial commit'"
